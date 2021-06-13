@@ -27,7 +27,7 @@ func Bracketize(c echo.Context) error {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}
 
-	// check if payload is clean or dirty
+	// check if the string payload.Body is clean or dirty
 	clean := bracketizer.SweepForBrackets(payload.Body)
 
 	return c.JSON(http.StatusOK, clean)
