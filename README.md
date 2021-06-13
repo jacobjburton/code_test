@@ -27,7 +27,7 @@ go test -v -count=1 ./...
 ##### You will need these things installed on your host:
 
 - go (1.16)
-    - this is all you need to run the tests from the command line
+    - this is all you need to run the go test from the command line
     - go to https://golang.org/dl/ to install
 - dnsmasq
 - nginx
