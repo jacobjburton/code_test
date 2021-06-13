@@ -88,4 +88,7 @@ Check Brackets
 - url: bracketizer.test/bracketizer/health
 - body:
     - text
-    - example: "<string>"
+    - example:
+    ```shell
+    "<string>"
+    ```
