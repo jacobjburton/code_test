@@ -1,0 +1,38 @@
+version: "3.3"
+
+services:
+  bracketizer-app:
+    container_name: ${APP_NAME}_app
+    image: ${APP_NAME}_app
+    build:
+      context: .
+      dockerfile: docker/app.local.Dockerfile
+    environment:
+      VIRTUAL_HOST: ${APP_NAME}-app
+      HTTPS_METHOD: noredirect
+    env_file:
+      - .env
+    ports:
+      - 80
+    expose:
+      - ${APP_PORT}
+    volumes:
+      - .:/go/src/app
+      - ${GOPATH}/pkg/mod:/go/pkg/mod
+  bracketizer-nginx:
+    container_name: ${APP_NAME}_nginx
+    image: ${APP_NAME}_nginx
+    build:
+      context: .
+      dockerfile: docker/nginx/nginx.Dockerfile
+    environment:
+      VIRTUAL_HOST: ${APP_NAME}.test
+      HSTS: "off"
+      HTTPS_METHOD: noredirect
+      APP_DOMAIN: ${APP_NAME} ${APP_NAME}.test
+      APP_HOST: ${APP_NAME}-app
+      APP_PORT: ${APP_PORT}
+networks:
+  default:
+    external:
+      name: development
