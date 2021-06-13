@@ -87,5 +87,5 @@ Check Brackets
 - POST Request
 - url: bracketizer.test/bracketizer/health
 - body:
-    - json
-    -
+    - text
+    - example: "<string>"
