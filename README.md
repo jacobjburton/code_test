@@ -1,10 +1,10 @@
 # Code Test
 
-## JS Version
+## NodeJS Version
 
 navigate to the js folder: /code_test/js
 
-Use the following to run test from cmd line
+Use the following to run test from cmd line (using jest)
 ```shell
 npm install
 
@@ -26,7 +26,9 @@ go test -v -count=1 ./...
 
 ##### You will need these things installed on your host:
 
-- go (v1.16.5)
+- go (1.16)
+    - this is all you need to run the tests from the command line
+    - go to https://golang.org/dl/ to install
 - dnsmasq
 - nginx
 
@@ -42,6 +44,8 @@ and `brew services start nginx` to ensure that those services automatically star
 On a MacBook, Docker Desktop for Mac is recommended.
 
 ### Setup
+
+Create a file at the root go level (/code_test/go) name `.env`.
 
 In your `.env` file, make sure the `APP_NAME` variables is set. If it isn't the application won't work.
 

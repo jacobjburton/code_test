@@ -11,11 +11,16 @@ module.exports = {
             } else if (s == "}") {
                 closeBrackets++
             }
+
             // if there are ever more closing brackets than opening we know the string is dirty
+            // this will also catch the case of a closeing bracket preceding all opening brackets
             if (closeBrackets > openBrackets) {
                 return false
             }
         }
+        
+        // if, after checking the entire string, opening brackets == close brackets - return true, or clean
+        // else we know that not all brackets are matched in the string - return false, or dirty
         return openBrackets == closeBrackets
     }
 }
