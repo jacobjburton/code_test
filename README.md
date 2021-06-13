@@ -1,7 +1,8 @@
 # Code Test
 
 ## JS Version
-/code_test/js
+
+navigate to the js folder: /code_test/js
 
 Use the following to run test from cmd line
 ```shell
@@ -11,7 +12,8 @@ npm run test
 ```
 
 ## Go Version
-/code_test/go
+
+navigate to the go folder: /code_test/go
 
 Use the following to run test from cmd line
 ```shell
@@ -85,10 +87,12 @@ Health Check
 
 Check Brackets
 - POST Request
-- url: bracketizer.test/bracketizer/health
+- url: bracketizer.test/bracketizer/sweep
 - body:
-    - text
+    - json
     - example:
     ```shell
-    "<string>"
+    {
+        "we_might_have_brackets": "{ I can has {}chzbrgr{} now }, { yis }"
+    }
     ```
